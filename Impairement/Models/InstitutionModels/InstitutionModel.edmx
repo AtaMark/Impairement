@@ -1,0 +1,1702 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="InstitutionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="account">
+          <Key>
+            <PropertyRef Name="id_account" />
+          </Key>
+          <Property Name="id_account" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="account_description" Type="varchar" MaxLength="50" />
+          <Property Name="branch_id" Type="int" Nullable="false" />
+          <Property Name="customer_number" Type="varchar" MaxLength="12" Nullable="false" />
+        </EntityType>
+        <EntityType Name="branch">
+          <Key>
+            <PropertyRef Name="id_branch" />
+          </Key>
+          <Property Name="id_branch" Type="int" Nullable="false" />
+          <Property Name="branch_name" Type="varchar" MaxLength="50" />
+          <Property Name="account_id" Type="varchar" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="creditofficer">
+          <Key>
+            <PropertyRef Name="id_credit_officer" />
+          </Key>
+          <Property Name="id_credit_officer" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="credit_officer_name" Type="varchar" MaxLength="50" />
+          <Property Name="loan_application_number" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="customer_number" />
+          </Key>
+          <Property Name="customer_number" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="account_holder_name" Type="varchar" MaxLength="50" />
+          <Property Name="contact1" Type="varchar" MaxLength="14" />
+          <Property Name="contact2" Type="int" />
+          <Property Name="genda" Type="varchar" MaxLength="6" />
+          <Property Name="group_id" Type="int" />
+          <Property Name="region_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="group">
+          <Key>
+            <PropertyRef Name="id_group" />
+          </Key>
+          <Property Name="id_group" Type="int" Nullable="false" />
+          <Property Name="group_description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="impairement">
+          <Key>
+            <PropertyRef Name="id_impairement" />
+          </Key>
+          <Property Name="id_impairement" Type="int" Nullable="false" />
+          <Property Name="amortization__type" Type="varchar" MaxLength="45" />
+          <Property Name="provision" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="restructured" Type="int" />
+          <Property Name="risk_class" Type="varchar" MaxLength="20" />
+          <Property Name="osb_less_dcfs" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="impairement_loss_year1" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="impairement_loss_year2" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="written_off_year2" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="recovered_in_year2" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="o_principle" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="impairement" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="is_it_still_impaired" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="is_it_writen_off" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="recovery_from_impairement" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="product_id" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="sector_id" Type="int" Nullable="false" />
+          <Property Name="account_id" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="customer_number" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="branch_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="loanheader">
+          <Key>
+            <PropertyRef Name="application_id" />
+          </Key>
+          <Property Name="application_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="customer_number" Type="varchar" MaxLength="12" />
+          <Property Name="application_date" Type="date" />
+          <Property Name="branch_id" Type="int" />
+          <Property Name="sector_id" Type="int" />
+        </EntityType>
+        <EntityType Name="loanline">
+          <Key>
+            <PropertyRef Name="id_loan_line" />
+          </Key>
+          <Property Name="id_loan_line" Type="int" Nullable="false" />
+          <Property Name="application_id" Type="varchar" MaxLength="10" />
+          <Property Name="date_of_disbursement" Type="date" />
+          <Property Name="amount" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="os_principle" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="os_interest" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="loan_balance" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="terms" Type="int" />
+          <Property Name="arrears_amount" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="interest_rate" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="arrears_principle" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="arrears_interest" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="loan_series" Type="int" />
+          <Property Name="last_due" Type="int" />
+          <Property Name="business_sector" Type="int" />
+          <Property Name="sub_sector" Type="int" />
+          <Property Name="sub_sub_sector" Type="int" />
+          <Property Name="purpose" Type="int" />
+          <Property Name="repayment_account" Type="varchar" MaxLength="12" />
+          <Property Name="interest" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="installment_star__date" Type="date" />
+          <Property Name="credit_office__ID" Type="varchar" MaxLength="10" />
+          <Property Name="frequency" Type="varchar" MaxLength="45" />
+          <Property Name="calculation_method" Type="int" />
+          <Property Name="number_of_loans" Type="int" />
+          <Property Name="clearBalance" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="provisionOSP" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="provisionOSI" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="provisionLOM" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="provisionAsAT" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="provisionATEOM" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="daysLate_Number" Type="int" />
+          <Property Name="daysLateAv" Type="int" />
+          <Property Name="interestTOEOM" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="gl_interest_month" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="interestpaid" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="principle_in_start_date" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="due_days" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="last_installment_paid_date" Type="date" />
+          <Property Name="suspended_interest" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="interest_receivable" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="actual_interest_receivable" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="out_standing_balance" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="installments_paid" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="loan_cycle" Type="int" />
+          <Property Name="recovered_amount" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="savings" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="unrecovered" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="trade" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="lossdefaultpersector">
+          <Key>
+            <PropertyRef Name="id_loss_default_per_sector" />
+          </Key>
+          <Property Name="id_loss_default_per_sector" Type="int" Nullable="false" />
+          <Property Name="sector_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="macroeconomicfactor">
+          <Key>
+            <PropertyRef Name="id_macro_economic_factor" />
+          </Key>
+          <Property Name="id_macro_economic_factor" Type="int" Nullable="false" />
+          <Property Name="factor" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_product" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="product_name" Type="varchar" MaxLength="50" />
+          <Property Name="loan_application_id" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="purpose">
+          <Key>
+            <PropertyRef Name="id_purpose" />
+          </Key>
+          <Property Name="id_purpose" Type="int" Nullable="false" />
+          <Property Name="purpose_description" Type="varchar" MaxLength="100" />
+          <Property Name="application_id" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="recoveries">
+          <Key>
+            <PropertyRef Name="id_recoveries" />
+          </Key>
+          <Property Name="id_recoveries" Type="int" Nullable="false" />
+          <Property Name="account_id" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="branch_id" Type="int" Nullable="false" />
+          <Property Name="product_id" Type="varchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="region">
+          <Key>
+            <PropertyRef Name="id_region" />
+          </Key>
+          <Property Name="id_region" Type="int" Nullable="false" />
+          <Property Name="region_description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sector">
+          <Key>
+            <PropertyRef Name="id_sector" />
+          </Key>
+          <Property Name="id_sector" Type="int" Nullable="false" />
+          <Property Name="sector_description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="security">
+          <Key>
+            <PropertyRef Name="id_security" />
+          </Key>
+          <Property Name="id_security" Type="int" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="100" />
+          <Property Name="loan_application_id" Type="varchar" MaxLength="10" />
+          <Property Name="value_of_security" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="market_value" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="forced_sale_value" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="adjusted_sales_value" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="discounted_cash_flows" Type="decimal" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="subsector">
+          <Key>
+            <PropertyRef Name="id_sub_sector" />
+          </Key>
+          <Property Name="id_sub_sector" Type="int" Nullable="false" />
+          <Property Name="sub_sector_description" Type="varchar" MaxLength="100" />
+          <Property Name="sector_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="subsubsector">
+          <Key>
+            <PropertyRef Name="id_sub_sub_sector" />
+          </Key>
+          <Property Name="id_sub_sub_sector" Type="int" Nullable="false" />
+          <Property Name="sub_sub_sector_description" Type="varchar" MaxLength="100" />
+          <Property Name="subSector_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="writtenoff">
+          <Key>
+            <PropertyRef Name="id_written_off" />
+          </Key>
+          <Property Name="id_written_off" Type="int" Nullable="false" />
+          <Property Name="os_balance" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="WrittenOffcol" Type="varchar" MaxLength="45" />
+          <Property Name="customer_number" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="application_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="account_id" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="branch_id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="application_id">
+          <End Role="loanheader" Type="Self.loanheader" Multiplicity="0..1" />
+          <End Role="loanline" Type="Self.loanline" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loanheader">
+              <PropertyRef Name="application_id" />
+            </Principal>
+            <Dependent Role="loanline">
+              <PropertyRef Name="application_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="branch_id">
+          <End Role="branch" Type="Self.branch" Multiplicity="0..1" />
+          <End Role="loanheader" Type="Self.loanheader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="branch">
+              <PropertyRef Name="id_branch" />
+            </Principal>
+            <Dependent Role="loanheader">
+              <PropertyRef Name="branch_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="customer_number">
+          <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+          <End Role="loanheader" Type="Self.loanheader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="customer_number" />
+            </Principal>
+            <Dependent Role="loanheader">
+              <PropertyRef Name="customer_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Account_Branch1">
+          <End Role="branch" Type="Self.branch" Multiplicity="1" />
+          <End Role="account" Type="Self.account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="branch">
+              <PropertyRef Name="id_branch" />
+            </Principal>
+            <Dependent Role="account">
+              <PropertyRef Name="branch_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Account_Customer1">
+          <End Role="customer" Type="Self.customer" Multiplicity="1" />
+          <End Role="account" Type="Self.account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="customer_number" />
+            </Principal>
+            <Dependent Role="account">
+              <PropertyRef Name="customer_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Customer_Region1">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="customer" Type="Self.customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="id_region" />
+            </Principal>
+            <Dependent Role="customer">
+              <PropertyRef Name="region_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_impairement_Account1">
+          <End Role="account" Type="Self.account" Multiplicity="1" />
+          <End Role="impairement" Type="Self.impairement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="impairement">
+              <PropertyRef Name="account_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_impairement_Branch1">
+          <End Role="branch" Type="Self.branch" Multiplicity="1" />
+          <End Role="impairement" Type="Self.impairement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="branch">
+              <PropertyRef Name="id_branch" />
+            </Principal>
+            <Dependent Role="impairement">
+              <PropertyRef Name="branch_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_impairement_Customer1">
+          <End Role="customer" Type="Self.customer" Multiplicity="1" />
+          <End Role="impairement" Type="Self.impairement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="customer_number" />
+            </Principal>
+            <Dependent Role="impairement">
+              <PropertyRef Name="customer_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_impairement_Product1">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="impairement" Type="Self.impairement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="impairement">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_impairement_Sector1">
+          <End Role="sector" Type="Self.sector" Multiplicity="1" />
+          <End Role="impairement" Type="Self.impairement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sector">
+              <PropertyRef Name="id_sector" />
+            </Principal>
+            <Dependent Role="impairement">
+              <PropertyRef Name="sector_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_LossDefaultPerSector_Sector1">
+          <End Role="sector" Type="Self.sector" Multiplicity="1" />
+          <End Role="lossdefaultpersector" Type="Self.lossdefaultpersector" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sector">
+              <PropertyRef Name="id_sector" />
+            </Principal>
+            <Dependent Role="lossdefaultpersector">
+              <PropertyRef Name="sector_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Purpose_LoanHeader1">
+          <End Role="loanheader" Type="Self.loanheader" Multiplicity="1" />
+          <End Role="purpose" Type="Self.purpose" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loanheader">
+              <PropertyRef Name="application_id" />
+            </Principal>
+            <Dependent Role="purpose">
+              <PropertyRef Name="application_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Recoveries_Account1">
+          <End Role="account" Type="Self.account" Multiplicity="1" />
+          <End Role="recoveries" Type="Self.recoveries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="recoveries">
+              <PropertyRef Name="account_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Recoveries_Branch1">
+          <End Role="branch" Type="Self.branch" Multiplicity="1" />
+          <End Role="recoveries" Type="Self.recoveries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="branch">
+              <PropertyRef Name="id_branch" />
+            </Principal>
+            <Dependent Role="recoveries">
+              <PropertyRef Name="branch_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Recoveries_Product1">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="recoveries" Type="Self.recoveries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="recoveries">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SubSector_Sector1">
+          <End Role="sector" Type="Self.sector" Multiplicity="1" />
+          <End Role="subsector" Type="Self.subsector" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sector">
+              <PropertyRef Name="id_sector" />
+            </Principal>
+            <Dependent Role="subsector">
+              <PropertyRef Name="sector_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SubSubSector_SubSector1">
+          <End Role="subsector" Type="Self.subsector" Multiplicity="1" />
+          <End Role="subsubsector" Type="Self.subsubsector" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subsector">
+              <PropertyRef Name="id_sub_sector" />
+            </Principal>
+            <Dependent Role="subsubsector">
+              <PropertyRef Name="subSector_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_WrittenOff_Account1">
+          <End Role="account" Type="Self.account" Multiplicity="1" />
+          <End Role="writtenoff" Type="Self.writtenoff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="writtenoff">
+              <PropertyRef Name="account_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_WrittenOff_Branch1">
+          <End Role="branch" Type="Self.branch" Multiplicity="1" />
+          <End Role="writtenoff" Type="Self.writtenoff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="branch">
+              <PropertyRef Name="id_branch" />
+            </Principal>
+            <Dependent Role="writtenoff">
+              <PropertyRef Name="branch_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_WrittenOff_Customer1">
+          <End Role="customer" Type="Self.customer" Multiplicity="1" />
+          <End Role="writtenoff" Type="Self.writtenoff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="customer_number" />
+            </Principal>
+            <Dependent Role="writtenoff">
+              <PropertyRef Name="customer_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_WrittenOff_LoanHeader1">
+          <End Role="loanheader" Type="Self.loanheader" Multiplicity="1" />
+          <End Role="writtenoff" Type="Self.writtenoff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loanheader">
+              <PropertyRef Name="application_id" />
+            </Principal>
+            <Dependent Role="writtenoff">
+              <PropertyRef Name="application_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="group_id">
+          <End Role="group" Type="Self.group" Multiplicity="0..1" />
+          <End Role="customer" Type="Self.customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="group">
+              <PropertyRef Name="id_group" />
+            </Principal>
+            <Dependent Role="customer">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="loan_applicaion_id">
+          <End Role="loanheader" Type="Self.loanheader" Multiplicity="0..1" />
+          <End Role="security" Type="Self.security" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loanheader">
+              <PropertyRef Name="application_id" />
+            </Principal>
+            <Dependent Role="security">
+              <PropertyRef Name="loan_application_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="loan_application_id">
+          <End Role="loanheader" Type="Self.loanheader" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loanheader">
+              <PropertyRef Name="application_id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="loan_application_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="loan_application_number">
+          <End Role="loanheader" Type="Self.loanheader" Multiplicity="0..1" />
+          <End Role="creditofficer" Type="Self.creditofficer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loanheader">
+              <PropertyRef Name="application_id" />
+            </Principal>
+            <Dependent Role="creditofficer">
+              <PropertyRef Name="loan_application_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sector_id">
+          <End Role="sector" Type="Self.sector" Multiplicity="0..1" />
+          <End Role="loanheader" Type="Self.loanheader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sector">
+              <PropertyRef Name="id_sector" />
+            </Principal>
+            <Dependent Role="loanheader">
+              <PropertyRef Name="sector_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InstitutionModelStoreContainer">
+          <EntitySet Name="account" EntityType="Self.account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="branch" EntityType="Self.branch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="creditofficer" EntityType="Self.creditofficer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="group" EntityType="Self.group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="impairement" EntityType="Self.impairement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="loanheader" EntityType="Self.loanheader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="loanline" EntityType="Self.loanline" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lossdefaultpersector" EntityType="Self.lossdefaultpersector" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="macroeconomicfactor" EntityType="Self.macroeconomicfactor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="purpose" EntityType="Self.purpose" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="recoveries" EntityType="Self.recoveries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="region" EntityType="Self.region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sector" EntityType="Self.sector" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="security" EntityType="Self.security" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subsector" EntityType="Self.subsector" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subsubsector" EntityType="Self.subsubsector" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="writtenoff" EntityType="Self.writtenoff" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="application_id" Association="Self.application_id">
+            <End Role="loanheader" EntitySet="loanheader" />
+            <End Role="loanline" EntitySet="loanline" />
+          </AssociationSet>
+          <AssociationSet Name="branch_id" Association="Self.branch_id">
+            <End Role="branch" EntitySet="branch" />
+            <End Role="loanheader" EntitySet="loanheader" />
+          </AssociationSet>
+          <AssociationSet Name="customer_number" Association="Self.customer_number">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="loanheader" EntitySet="loanheader" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Account_Branch1" Association="Self.fk_Account_Branch1">
+            <End Role="branch" EntitySet="branch" />
+            <End Role="account" EntitySet="account" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Account_Customer1" Association="Self.fk_Account_Customer1">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="account" EntitySet="account" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Customer_Region1" Association="Self.fk_Customer_Region1">
+            <End Role="region" EntitySet="region" />
+            <End Role="customer" EntitySet="customer" />
+          </AssociationSet>
+          <AssociationSet Name="fk_impairement_Account1" Association="Self.fk_impairement_Account1">
+            <End Role="account" EntitySet="account" />
+            <End Role="impairement" EntitySet="impairement" />
+          </AssociationSet>
+          <AssociationSet Name="fk_impairement_Branch1" Association="Self.fk_impairement_Branch1">
+            <End Role="branch" EntitySet="branch" />
+            <End Role="impairement" EntitySet="impairement" />
+          </AssociationSet>
+          <AssociationSet Name="fk_impairement_Customer1" Association="Self.fk_impairement_Customer1">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="impairement" EntitySet="impairement" />
+          </AssociationSet>
+          <AssociationSet Name="fk_impairement_Product1" Association="Self.fk_impairement_Product1">
+            <End Role="product" EntitySet="product" />
+            <End Role="impairement" EntitySet="impairement" />
+          </AssociationSet>
+          <AssociationSet Name="fk_impairement_Sector1" Association="Self.fk_impairement_Sector1">
+            <End Role="sector" EntitySet="sector" />
+            <End Role="impairement" EntitySet="impairement" />
+          </AssociationSet>
+          <AssociationSet Name="fk_LossDefaultPerSector_Sector1" Association="Self.fk_LossDefaultPerSector_Sector1">
+            <End Role="sector" EntitySet="sector" />
+            <End Role="lossdefaultpersector" EntitySet="lossdefaultpersector" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Purpose_LoanHeader1" Association="Self.fk_Purpose_LoanHeader1">
+            <End Role="loanheader" EntitySet="loanheader" />
+            <End Role="purpose" EntitySet="purpose" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Recoveries_Account1" Association="Self.fk_Recoveries_Account1">
+            <End Role="account" EntitySet="account" />
+            <End Role="recoveries" EntitySet="recoveries" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Recoveries_Branch1" Association="Self.fk_Recoveries_Branch1">
+            <End Role="branch" EntitySet="branch" />
+            <End Role="recoveries" EntitySet="recoveries" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Recoveries_Product1" Association="Self.fk_Recoveries_Product1">
+            <End Role="product" EntitySet="product" />
+            <End Role="recoveries" EntitySet="recoveries" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SubSector_Sector1" Association="Self.fk_SubSector_Sector1">
+            <End Role="sector" EntitySet="sector" />
+            <End Role="subsector" EntitySet="subsector" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SubSubSector_SubSector1" Association="Self.fk_SubSubSector_SubSector1">
+            <End Role="subsector" EntitySet="subsector" />
+            <End Role="subsubsector" EntitySet="subsubsector" />
+          </AssociationSet>
+          <AssociationSet Name="fk_WrittenOff_Account1" Association="Self.fk_WrittenOff_Account1">
+            <End Role="account" EntitySet="account" />
+            <End Role="writtenoff" EntitySet="writtenoff" />
+          </AssociationSet>
+          <AssociationSet Name="fk_WrittenOff_Branch1" Association="Self.fk_WrittenOff_Branch1">
+            <End Role="branch" EntitySet="branch" />
+            <End Role="writtenoff" EntitySet="writtenoff" />
+          </AssociationSet>
+          <AssociationSet Name="fk_WrittenOff_Customer1" Association="Self.fk_WrittenOff_Customer1">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="writtenoff" EntitySet="writtenoff" />
+          </AssociationSet>
+          <AssociationSet Name="fk_WrittenOff_LoanHeader1" Association="Self.fk_WrittenOff_LoanHeader1">
+            <End Role="loanheader" EntitySet="loanheader" />
+            <End Role="writtenoff" EntitySet="writtenoff" />
+          </AssociationSet>
+          <AssociationSet Name="group_id" Association="Self.group_id">
+            <End Role="group" EntitySet="group" />
+            <End Role="customer" EntitySet="customer" />
+          </AssociationSet>
+          <AssociationSet Name="loan_applicaion_id" Association="Self.loan_applicaion_id">
+            <End Role="loanheader" EntitySet="loanheader" />
+            <End Role="security" EntitySet="security" />
+          </AssociationSet>
+          <AssociationSet Name="loan_application_id" Association="Self.loan_application_id">
+            <End Role="loanheader" EntitySet="loanheader" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="loan_application_number" Association="Self.loan_application_number">
+            <End Role="loanheader" EntitySet="loanheader" />
+            <End Role="creditofficer" EntitySet="creditofficer" />
+          </AssociationSet>
+          <AssociationSet Name="sector_id" Association="Self.sector_id">
+            <End Role="sector" EntitySet="sector" />
+            <End Role="loanheader" EntitySet="loanheader" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InstitutionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="account">
+          <Key>
+            <PropertyRef Name="id_account" />
+          </Key>
+          <Property Name="id_account" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="account_description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="branch_id" Type="Int32" Nullable="false" />
+          <Property Name="customer_number" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="branch" Relationship="Self.fk_Account_Branch1" FromRole="account" ToRole="branch" />
+          <NavigationProperty Name="customer" Relationship="Self.fk_Account_Customer1" FromRole="account" ToRole="customer" />
+          <NavigationProperty Name="impairements" Relationship="Self.fk_impairement_Account1" FromRole="account" ToRole="impairement" />
+          <NavigationProperty Name="recoveries" Relationship="Self.fk_Recoveries_Account1" FromRole="account" ToRole="recoveries" />
+          <NavigationProperty Name="writtenoffs" Relationship="Self.fk_WrittenOff_Account1" FromRole="account" ToRole="writtenoff" />
+        </EntityType>
+        <EntityType Name="branch">
+          <Key>
+            <PropertyRef Name="id_branch" />
+          </Key>
+          <Property Name="id_branch" Type="Int32" Nullable="false" />
+          <Property Name="branch_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="account_id" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="accounts" Relationship="Self.fk_Account_Branch1" FromRole="branch" ToRole="account" />
+          <NavigationProperty Name="loanheaders" Relationship="Self.branch_id" FromRole="branch" ToRole="loanheader" />
+          <NavigationProperty Name="impairements" Relationship="Self.fk_impairement_Branch1" FromRole="branch" ToRole="impairement" />
+          <NavigationProperty Name="recoveries" Relationship="Self.fk_Recoveries_Branch1" FromRole="branch" ToRole="recoveries" />
+          <NavigationProperty Name="writtenoffs" Relationship="Self.fk_WrittenOff_Branch1" FromRole="branch" ToRole="writtenoff" />
+        </EntityType>
+        <EntityType Name="creditofficer">
+          <Key>
+            <PropertyRef Name="id_credit_officer" />
+          </Key>
+          <Property Name="id_credit_officer" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="credit_officer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="loan_application_number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="loanheader" Relationship="Self.loan_application_number" FromRole="creditofficer" ToRole="loanheader" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="customer_number" />
+          </Key>
+          <Property Name="customer_number" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="account_holder_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="contact1" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="contact2" Type="Int32" />
+          <Property Name="genda" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="group_id" Type="Int32" />
+          <Property Name="region_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="accounts" Relationship="Self.fk_Account_Customer1" FromRole="customer" ToRole="account" />
+          <NavigationProperty Name="loanheaders" Relationship="Self.customer_number" FromRole="customer" ToRole="loanheader" />
+          <NavigationProperty Name="region" Relationship="Self.fk_Customer_Region1" FromRole="customer" ToRole="region" />
+          <NavigationProperty Name="impairements" Relationship="Self.fk_impairement_Customer1" FromRole="customer" ToRole="impairement" />
+          <NavigationProperty Name="writtenoffs" Relationship="Self.fk_WrittenOff_Customer1" FromRole="customer" ToRole="writtenoff" />
+          <NavigationProperty Name="group" Relationship="Self.group_id" FromRole="customer" ToRole="group" />
+        </EntityType>
+        <EntityType Name="group">
+          <Key>
+            <PropertyRef Name="id_group" />
+          </Key>
+          <Property Name="id_group" Type="Int32" Nullable="false" />
+          <Property Name="group_description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="customers" Relationship="Self.group_id" FromRole="group" ToRole="customer" />
+        </EntityType>
+        <EntityType Name="impairement">
+          <Key>
+            <PropertyRef Name="id_impairement" />
+          </Key>
+          <Property Name="id_impairement" Type="Int32" Nullable="false" />
+          <Property Name="amortization__type" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="provision" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="restructured" Type="Int32" />
+          <Property Name="risk_class" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="osb_less_dcfs" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="impairement_loss_year1" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="impairement_loss_year2" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="written_off_year2" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="recovered_in_year2" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="o_principle" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="impairement1" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="is_it_still_impaired" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="is_it_writen_off" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="recovery_from_impairement" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="product_id" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sector_id" Type="Int32" Nullable="false" />
+          <Property Name="account_id" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="customer_number" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="branch_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="account" Relationship="Self.fk_impairement_Account1" FromRole="impairement" ToRole="account" />
+          <NavigationProperty Name="branch" Relationship="Self.fk_impairement_Branch1" FromRole="impairement" ToRole="branch" />
+          <NavigationProperty Name="customer" Relationship="Self.fk_impairement_Customer1" FromRole="impairement" ToRole="customer" />
+          <NavigationProperty Name="product" Relationship="Self.fk_impairement_Product1" FromRole="impairement" ToRole="product" />
+          <NavigationProperty Name="sector" Relationship="Self.fk_impairement_Sector1" FromRole="impairement" ToRole="sector" />
+        </EntityType>
+        <EntityType Name="loanheader">
+          <Key>
+            <PropertyRef Name="application_id" />
+          </Key>
+          <Property Name="application_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="customer_number" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="application_date" Type="DateTime" Precision="0" />
+          <Property Name="branch_id" Type="Int32" />
+          <Property Name="sector_id" Type="Int32" />
+          <NavigationProperty Name="branch" Relationship="Self.branch_id" FromRole="loanheader" ToRole="branch" />
+          <NavigationProperty Name="creditofficers" Relationship="Self.loan_application_number" FromRole="loanheader" ToRole="creditofficer" />
+          <NavigationProperty Name="customer" Relationship="Self.customer_number" FromRole="loanheader" ToRole="customer" />
+          <NavigationProperty Name="loanlines" Relationship="Self.application_id" FromRole="loanheader" ToRole="loanline" />
+          <NavigationProperty Name="purposes" Relationship="Self.fk_Purpose_LoanHeader1" FromRole="loanheader" ToRole="purpose" />
+          <NavigationProperty Name="writtenoffs" Relationship="Self.fk_WrittenOff_LoanHeader1" FromRole="loanheader" ToRole="writtenoff" />
+          <NavigationProperty Name="securities" Relationship="Self.loan_applicaion_id" FromRole="loanheader" ToRole="security" />
+          <NavigationProperty Name="products" Relationship="Self.loan_application_id" FromRole="loanheader" ToRole="product" />
+          <NavigationProperty Name="sector" Relationship="Self.sector_id" FromRole="loanheader" ToRole="sector" />
+        </EntityType>
+        <EntityType Name="loanline">
+          <Key>
+            <PropertyRef Name="id_loan_line" />
+          </Key>
+          <Property Name="id_loan_line" Type="Int32" Nullable="false" />
+          <Property Name="application_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="date_of_disbursement" Type="DateTime" Precision="0" />
+          <Property Name="amount" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="os_principle" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="os_interest" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="loan_balance" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="terms" Type="Int32" />
+          <Property Name="arrears_amount" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="interest_rate" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="arrears_principle" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="arrears_interest" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="loan_series" Type="Int32" />
+          <Property Name="last_due" Type="Int32" />
+          <Property Name="business_sector" Type="Int32" />
+          <Property Name="sub_sector" Type="Int32" />
+          <Property Name="sub_sub_sector" Type="Int32" />
+          <Property Name="purpose" Type="Int32" />
+          <Property Name="repayment_account" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="interest" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="installment_star__date" Type="DateTime" Precision="0" />
+          <Property Name="credit_office__ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="frequency" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="calculation_method" Type="Int32" />
+          <Property Name="number_of_loans" Type="Int32" />
+          <Property Name="clearBalance" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="provisionOSP" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="provisionOSI" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="provisionLOM" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="provisionAsAT" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="provisionATEOM" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="daysLate_Number" Type="Int32" />
+          <Property Name="daysLateAv" Type="Int32" />
+          <Property Name="interestTOEOM" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="gl_interest_month" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="interestpaid" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="principle_in_start_date" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="due_days" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="last_installment_paid_date" Type="DateTime" Precision="0" />
+          <Property Name="suspended_interest" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="interest_receivable" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="actual_interest_receivable" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="out_standing_balance" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="installments_paid" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="loan_cycle" Type="Int32" />
+          <Property Name="recovered_amount" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="savings" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="unrecovered" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="trade" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="loanheader" Relationship="Self.application_id" FromRole="loanline" ToRole="loanheader" />
+        </EntityType>
+        <EntityType Name="lossdefaultpersector">
+          <Key>
+            <PropertyRef Name="id_loss_default_per_sector" />
+          </Key>
+          <Property Name="id_loss_default_per_sector" Type="Int32" Nullable="false" />
+          <Property Name="sector_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="sector" Relationship="Self.fk_LossDefaultPerSector_Sector1" FromRole="lossdefaultpersector" ToRole="sector" />
+        </EntityType>
+        <EntityType Name="macroeconomicfactor">
+          <Key>
+            <PropertyRef Name="id_macro_economic_factor" />
+          </Key>
+          <Property Name="id_macro_economic_factor" Type="Int32" Nullable="false" />
+          <Property Name="factor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_product" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="loan_application_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="impairements" Relationship="Self.fk_impairement_Product1" FromRole="product" ToRole="impairement" />
+          <NavigationProperty Name="loanheader" Relationship="Self.loan_application_id" FromRole="product" ToRole="loanheader" />
+          <NavigationProperty Name="recoveries" Relationship="Self.fk_Recoveries_Product1" FromRole="product" ToRole="recoveries" />
+        </EntityType>
+        <EntityType Name="purpose">
+          <Key>
+            <PropertyRef Name="id_purpose" />
+          </Key>
+          <Property Name="id_purpose" Type="Int32" Nullable="false" />
+          <Property Name="purpose_description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="application_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="loanheader" Relationship="Self.fk_Purpose_LoanHeader1" FromRole="purpose" ToRole="loanheader" />
+        </EntityType>
+        <EntityType Name="recovery">
+          <Key>
+            <PropertyRef Name="id_recoveries" />
+          </Key>
+          <Property Name="id_recoveries" Type="Int32" Nullable="false" />
+          <Property Name="account_id" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="branch_id" Type="Int32" Nullable="false" />
+          <Property Name="product_id" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="account" Relationship="Self.fk_Recoveries_Account1" FromRole="recoveries" ToRole="account" />
+          <NavigationProperty Name="branch" Relationship="Self.fk_Recoveries_Branch1" FromRole="recoveries" ToRole="branch" />
+          <NavigationProperty Name="product" Relationship="Self.fk_Recoveries_Product1" FromRole="recoveries" ToRole="product" />
+        </EntityType>
+        <EntityType Name="region">
+          <Key>
+            <PropertyRef Name="id_region" />
+          </Key>
+          <Property Name="id_region" Type="Int32" Nullable="false" />
+          <Property Name="region_description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="customers" Relationship="Self.fk_Customer_Region1" FromRole="region" ToRole="customer" />
+        </EntityType>
+        <EntityType Name="sector">
+          <Key>
+            <PropertyRef Name="id_sector" />
+          </Key>
+          <Property Name="id_sector" Type="Int32" Nullable="false" />
+          <Property Name="sector_description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="impairements" Relationship="Self.fk_impairement_Sector1" FromRole="sector" ToRole="impairement" />
+          <NavigationProperty Name="loanheaders" Relationship="Self.sector_id" FromRole="sector" ToRole="loanheader" />
+          <NavigationProperty Name="lossdefaultpersectors" Relationship="Self.fk_LossDefaultPerSector_Sector1" FromRole="sector" ToRole="lossdefaultpersector" />
+          <NavigationProperty Name="subsectors" Relationship="Self.fk_SubSector_Sector1" FromRole="sector" ToRole="subsector" />
+        </EntityType>
+        <EntityType Name="security">
+          <Key>
+            <PropertyRef Name="id_security" />
+          </Key>
+          <Property Name="id_security" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="loan_application_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="value_of_security" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="market_value" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="forced_sale_value" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="adjusted_sales_value" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="discounted_cash_flows" Type="Decimal" Precision="10" Scale="0" />
+          <NavigationProperty Name="loanheader" Relationship="Self.loan_applicaion_id" FromRole="security" ToRole="loanheader" />
+        </EntityType>
+        <EntityType Name="subsector">
+          <Key>
+            <PropertyRef Name="id_sub_sector" />
+          </Key>
+          <Property Name="id_sub_sector" Type="Int32" Nullable="false" />
+          <Property Name="sub_sector_description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sector_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="sector" Relationship="Self.fk_SubSector_Sector1" FromRole="subsector" ToRole="sector" />
+          <NavigationProperty Name="subsubsectors" Relationship="Self.fk_SubSubSector_SubSector1" FromRole="subsector" ToRole="subsubsector" />
+        </EntityType>
+        <EntityType Name="subsubsector">
+          <Key>
+            <PropertyRef Name="id_sub_sub_sector" />
+          </Key>
+          <Property Name="id_sub_sub_sector" Type="Int32" Nullable="false" />
+          <Property Name="sub_sub_sector_description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="subSector_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="subsector" Relationship="Self.fk_SubSubSector_SubSector1" FromRole="subsubsector" ToRole="subsector" />
+        </EntityType>
+        <EntityType Name="writtenoff">
+          <Key>
+            <PropertyRef Name="id_written_off" />
+          </Key>
+          <Property Name="id_written_off" Type="Int32" Nullable="false" />
+          <Property Name="os_balance" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="WrittenOffcol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="customer_number" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="application_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="account_id" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="branch_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="account" Relationship="Self.fk_WrittenOff_Account1" FromRole="writtenoff" ToRole="account" />
+          <NavigationProperty Name="branch" Relationship="Self.fk_WrittenOff_Branch1" FromRole="writtenoff" ToRole="branch" />
+          <NavigationProperty Name="customer" Relationship="Self.fk_WrittenOff_Customer1" FromRole="writtenoff" ToRole="customer" />
+          <NavigationProperty Name="loanheader" Relationship="Self.fk_WrittenOff_LoanHeader1" FromRole="writtenoff" ToRole="loanheader" />
+        </EntityType>
+        <Association Name="fk_Account_Branch1">
+          <End Role="branch" Type="Self.branch" Multiplicity="1" />
+          <End Role="account" Type="Self.account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="branch">
+              <PropertyRef Name="id_branch" />
+            </Principal>
+            <Dependent Role="account">
+              <PropertyRef Name="branch_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Account_Customer1">
+          <End Role="customer" Type="Self.customer" Multiplicity="1" />
+          <End Role="account" Type="Self.account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="customer_number" />
+            </Principal>
+            <Dependent Role="account">
+              <PropertyRef Name="customer_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_impairement_Account1">
+          <End Role="account" Type="Self.account" Multiplicity="1" />
+          <End Role="impairement" Type="Self.impairement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="impairement">
+              <PropertyRef Name="account_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Recoveries_Account1">
+          <End Role="account" Type="Self.account" Multiplicity="1" />
+          <End Role="recoveries" Type="Self.recovery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="recoveries">
+              <PropertyRef Name="account_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_WrittenOff_Account1">
+          <End Role="account" Type="Self.account" Multiplicity="1" />
+          <End Role="writtenoff" Type="Self.writtenoff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="account">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="writtenoff">
+              <PropertyRef Name="account_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="branch_id">
+          <End Role="branch" Type="Self.branch" Multiplicity="0..1" />
+          <End Role="loanheader" Type="Self.loanheader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="branch">
+              <PropertyRef Name="id_branch" />
+            </Principal>
+            <Dependent Role="loanheader">
+              <PropertyRef Name="branch_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_impairement_Branch1">
+          <End Role="branch" Type="Self.branch" Multiplicity="1" />
+          <End Role="impairement" Type="Self.impairement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="branch">
+              <PropertyRef Name="id_branch" />
+            </Principal>
+            <Dependent Role="impairement">
+              <PropertyRef Name="branch_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Recoveries_Branch1">
+          <End Role="branch" Type="Self.branch" Multiplicity="1" />
+          <End Role="recoveries" Type="Self.recovery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="branch">
+              <PropertyRef Name="id_branch" />
+            </Principal>
+            <Dependent Role="recoveries">
+              <PropertyRef Name="branch_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_WrittenOff_Branch1">
+          <End Role="branch" Type="Self.branch" Multiplicity="1" />
+          <End Role="writtenoff" Type="Self.writtenoff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="branch">
+              <PropertyRef Name="id_branch" />
+            </Principal>
+            <Dependent Role="writtenoff">
+              <PropertyRef Name="branch_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="loan_application_number">
+          <End Role="loanheader" Type="Self.loanheader" Multiplicity="0..1" />
+          <End Role="creditofficer" Type="Self.creditofficer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loanheader">
+              <PropertyRef Name="application_id" />
+            </Principal>
+            <Dependent Role="creditofficer">
+              <PropertyRef Name="loan_application_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="customer_number">
+          <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+          <End Role="loanheader" Type="Self.loanheader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="customer_number" />
+            </Principal>
+            <Dependent Role="loanheader">
+              <PropertyRef Name="customer_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Customer_Region1">
+          <End Role="region" Type="Self.region" Multiplicity="1" />
+          <End Role="customer" Type="Self.customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="id_region" />
+            </Principal>
+            <Dependent Role="customer">
+              <PropertyRef Name="region_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_impairement_Customer1">
+          <End Role="customer" Type="Self.customer" Multiplicity="1" />
+          <End Role="impairement" Type="Self.impairement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="customer_number" />
+            </Principal>
+            <Dependent Role="impairement">
+              <PropertyRef Name="customer_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_WrittenOff_Customer1">
+          <End Role="customer" Type="Self.customer" Multiplicity="1" />
+          <End Role="writtenoff" Type="Self.writtenoff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="customer_number" />
+            </Principal>
+            <Dependent Role="writtenoff">
+              <PropertyRef Name="customer_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="group_id">
+          <End Role="group" Type="Self.group" Multiplicity="0..1" />
+          <End Role="customer" Type="Self.customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="group">
+              <PropertyRef Name="id_group" />
+            </Principal>
+            <Dependent Role="customer">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_impairement_Product1">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="impairement" Type="Self.impairement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="impairement">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_impairement_Sector1">
+          <End Role="sector" Type="Self.sector" Multiplicity="1" />
+          <End Role="impairement" Type="Self.impairement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sector">
+              <PropertyRef Name="id_sector" />
+            </Principal>
+            <Dependent Role="impairement">
+              <PropertyRef Name="sector_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="application_id">
+          <End Role="loanheader" Type="Self.loanheader" Multiplicity="0..1" />
+          <End Role="loanline" Type="Self.loanline" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loanheader">
+              <PropertyRef Name="application_id" />
+            </Principal>
+            <Dependent Role="loanline">
+              <PropertyRef Name="application_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Purpose_LoanHeader1">
+          <End Role="loanheader" Type="Self.loanheader" Multiplicity="1" />
+          <End Role="purpose" Type="Self.purpose" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loanheader">
+              <PropertyRef Name="application_id" />
+            </Principal>
+            <Dependent Role="purpose">
+              <PropertyRef Name="application_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_WrittenOff_LoanHeader1">
+          <End Role="loanheader" Type="Self.loanheader" Multiplicity="1" />
+          <End Role="writtenoff" Type="Self.writtenoff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loanheader">
+              <PropertyRef Name="application_id" />
+            </Principal>
+            <Dependent Role="writtenoff">
+              <PropertyRef Name="application_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="loan_applicaion_id">
+          <End Role="loanheader" Type="Self.loanheader" Multiplicity="0..1" />
+          <End Role="security" Type="Self.security" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loanheader">
+              <PropertyRef Name="application_id" />
+            </Principal>
+            <Dependent Role="security">
+              <PropertyRef Name="loan_application_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="loan_application_id">
+          <End Role="loanheader" Type="Self.loanheader" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loanheader">
+              <PropertyRef Name="application_id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="loan_application_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sector_id">
+          <End Role="sector" Type="Self.sector" Multiplicity="0..1" />
+          <End Role="loanheader" Type="Self.loanheader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sector">
+              <PropertyRef Name="id_sector" />
+            </Principal>
+            <Dependent Role="loanheader">
+              <PropertyRef Name="sector_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_LossDefaultPerSector_Sector1">
+          <End Role="sector" Type="Self.sector" Multiplicity="1" />
+          <End Role="lossdefaultpersector" Type="Self.lossdefaultpersector" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sector">
+              <PropertyRef Name="id_sector" />
+            </Principal>
+            <Dependent Role="lossdefaultpersector">
+              <PropertyRef Name="sector_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Recoveries_Product1">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="recoveries" Type="Self.recovery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="recoveries">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SubSector_Sector1">
+          <End Role="sector" Type="Self.sector" Multiplicity="1" />
+          <End Role="subsector" Type="Self.subsector" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sector">
+              <PropertyRef Name="id_sector" />
+            </Principal>
+            <Dependent Role="subsector">
+              <PropertyRef Name="sector_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SubSubSector_SubSector1">
+          <End Role="subsector" Type="Self.subsector" Multiplicity="1" />
+          <End Role="subsubsector" Type="Self.subsubsector" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subsector">
+              <PropertyRef Name="id_sub_sector" />
+            </Principal>
+            <Dependent Role="subsubsector">
+              <PropertyRef Name="subSector_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InstitutionEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="accounts" EntityType="Self.account" />
+          <EntitySet Name="branches" EntityType="Self.branch" />
+          <EntitySet Name="creditofficers" EntityType="Self.creditofficer" />
+          <EntitySet Name="customers" EntityType="Self.customer" />
+          <EntitySet Name="groups" EntityType="Self.group" />
+          <EntitySet Name="impairements" EntityType="Self.impairement" />
+          <EntitySet Name="loanheaders" EntityType="Self.loanheader" />
+          <EntitySet Name="loanlines" EntityType="Self.loanline" />
+          <EntitySet Name="lossdefaultpersectors" EntityType="Self.lossdefaultpersector" />
+          <EntitySet Name="macroeconomicfactors" EntityType="Self.macroeconomicfactor" />
+          <EntitySet Name="products" EntityType="Self.product" />
+          <EntitySet Name="purposes" EntityType="Self.purpose" />
+          <EntitySet Name="recoveries" EntityType="Self.recovery" />
+          <EntitySet Name="regions" EntityType="Self.region" />
+          <EntitySet Name="sectors" EntityType="Self.sector" />
+          <EntitySet Name="securities" EntityType="Self.security" />
+          <EntitySet Name="subsectors" EntityType="Self.subsector" />
+          <EntitySet Name="subsubsectors" EntityType="Self.subsubsector" />
+          <EntitySet Name="writtenoffs" EntityType="Self.writtenoff" />
+          <AssociationSet Name="fk_Account_Branch1" Association="Self.fk_Account_Branch1">
+            <End Role="branch" EntitySet="branches" />
+            <End Role="account" EntitySet="accounts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Account_Customer1" Association="Self.fk_Account_Customer1">
+            <End Role="customer" EntitySet="customers" />
+            <End Role="account" EntitySet="accounts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_impairement_Account1" Association="Self.fk_impairement_Account1">
+            <End Role="account" EntitySet="accounts" />
+            <End Role="impairement" EntitySet="impairements" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Recoveries_Account1" Association="Self.fk_Recoveries_Account1">
+            <End Role="account" EntitySet="accounts" />
+            <End Role="recoveries" EntitySet="recoveries" />
+          </AssociationSet>
+          <AssociationSet Name="fk_WrittenOff_Account1" Association="Self.fk_WrittenOff_Account1">
+            <End Role="account" EntitySet="accounts" />
+            <End Role="writtenoff" EntitySet="writtenoffs" />
+          </AssociationSet>
+          <AssociationSet Name="branch_id" Association="Self.branch_id">
+            <End Role="branch" EntitySet="branches" />
+            <End Role="loanheader" EntitySet="loanheaders" />
+          </AssociationSet>
+          <AssociationSet Name="fk_impairement_Branch1" Association="Self.fk_impairement_Branch1">
+            <End Role="branch" EntitySet="branches" />
+            <End Role="impairement" EntitySet="impairements" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Recoveries_Branch1" Association="Self.fk_Recoveries_Branch1">
+            <End Role="branch" EntitySet="branches" />
+            <End Role="recoveries" EntitySet="recoveries" />
+          </AssociationSet>
+          <AssociationSet Name="fk_WrittenOff_Branch1" Association="Self.fk_WrittenOff_Branch1">
+            <End Role="branch" EntitySet="branches" />
+            <End Role="writtenoff" EntitySet="writtenoffs" />
+          </AssociationSet>
+          <AssociationSet Name="loan_application_number" Association="Self.loan_application_number">
+            <End Role="loanheader" EntitySet="loanheaders" />
+            <End Role="creditofficer" EntitySet="creditofficers" />
+          </AssociationSet>
+          <AssociationSet Name="customer_number" Association="Self.customer_number">
+            <End Role="customer" EntitySet="customers" />
+            <End Role="loanheader" EntitySet="loanheaders" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Customer_Region1" Association="Self.fk_Customer_Region1">
+            <End Role="region" EntitySet="regions" />
+            <End Role="customer" EntitySet="customers" />
+          </AssociationSet>
+          <AssociationSet Name="fk_impairement_Customer1" Association="Self.fk_impairement_Customer1">
+            <End Role="customer" EntitySet="customers" />
+            <End Role="impairement" EntitySet="impairements" />
+          </AssociationSet>
+          <AssociationSet Name="fk_WrittenOff_Customer1" Association="Self.fk_WrittenOff_Customer1">
+            <End Role="customer" EntitySet="customers" />
+            <End Role="writtenoff" EntitySet="writtenoffs" />
+          </AssociationSet>
+          <AssociationSet Name="group_id" Association="Self.group_id">
+            <End Role="group" EntitySet="groups" />
+            <End Role="customer" EntitySet="customers" />
+          </AssociationSet>
+          <AssociationSet Name="fk_impairement_Product1" Association="Self.fk_impairement_Product1">
+            <End Role="product" EntitySet="products" />
+            <End Role="impairement" EntitySet="impairements" />
+          </AssociationSet>
+          <AssociationSet Name="fk_impairement_Sector1" Association="Self.fk_impairement_Sector1">
+            <End Role="sector" EntitySet="sectors" />
+            <End Role="impairement" EntitySet="impairements" />
+          </AssociationSet>
+          <AssociationSet Name="application_id" Association="Self.application_id">
+            <End Role="loanheader" EntitySet="loanheaders" />
+            <End Role="loanline" EntitySet="loanlines" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Purpose_LoanHeader1" Association="Self.fk_Purpose_LoanHeader1">
+            <End Role="loanheader" EntitySet="loanheaders" />
+            <End Role="purpose" EntitySet="purposes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_WrittenOff_LoanHeader1" Association="Self.fk_WrittenOff_LoanHeader1">
+            <End Role="loanheader" EntitySet="loanheaders" />
+            <End Role="writtenoff" EntitySet="writtenoffs" />
+          </AssociationSet>
+          <AssociationSet Name="loan_applicaion_id" Association="Self.loan_applicaion_id">
+            <End Role="loanheader" EntitySet="loanheaders" />
+            <End Role="security" EntitySet="securities" />
+          </AssociationSet>
+          <AssociationSet Name="loan_application_id" Association="Self.loan_application_id">
+            <End Role="loanheader" EntitySet="loanheaders" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="sector_id" Association="Self.sector_id">
+            <End Role="sector" EntitySet="sectors" />
+            <End Role="loanheader" EntitySet="loanheaders" />
+          </AssociationSet>
+          <AssociationSet Name="fk_LossDefaultPerSector_Sector1" Association="Self.fk_LossDefaultPerSector_Sector1">
+            <End Role="sector" EntitySet="sectors" />
+            <End Role="lossdefaultpersector" EntitySet="lossdefaultpersectors" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Recoveries_Product1" Association="Self.fk_Recoveries_Product1">
+            <End Role="product" EntitySet="products" />
+            <End Role="recoveries" EntitySet="recoveries" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SubSector_Sector1" Association="Self.fk_SubSector_Sector1">
+            <End Role="sector" EntitySet="sectors" />
+            <End Role="subsector" EntitySet="subsectors" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SubSubSector_SubSector1" Association="Self.fk_SubSubSector_SubSector1">
+            <End Role="subsector" EntitySet="subsectors" />
+            <End Role="subsubsector" EntitySet="subsubsectors" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InstitutionModelStoreContainer" CdmEntityContainer="InstitutionEntities">
+          <EntitySetMapping Name="accounts">
+            <EntityTypeMapping TypeName="InstitutionModel.account">
+              <MappingFragment StoreEntitySet="account">
+                <ScalarProperty Name="id_account" ColumnName="id_account" />
+                <ScalarProperty Name="account_description" ColumnName="account_description" />
+                <ScalarProperty Name="branch_id" ColumnName="branch_id" />
+                <ScalarProperty Name="customer_number" ColumnName="customer_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="branches">
+            <EntityTypeMapping TypeName="InstitutionModel.branch">
+              <MappingFragment StoreEntitySet="branch">
+                <ScalarProperty Name="id_branch" ColumnName="id_branch" />
+                <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+                <ScalarProperty Name="account_id" ColumnName="account_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="creditofficers">
+            <EntityTypeMapping TypeName="InstitutionModel.creditofficer">
+              <MappingFragment StoreEntitySet="creditofficer">
+                <ScalarProperty Name="id_credit_officer" ColumnName="id_credit_officer" />
+                <ScalarProperty Name="credit_officer_name" ColumnName="credit_officer_name" />
+                <ScalarProperty Name="loan_application_number" ColumnName="loan_application_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="InstitutionModel.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="customer_number" ColumnName="customer_number" />
+                <ScalarProperty Name="account_holder_name" ColumnName="account_holder_name" />
+                <ScalarProperty Name="contact1" ColumnName="contact1" />
+                <ScalarProperty Name="contact2" ColumnName="contact2" />
+                <ScalarProperty Name="genda" ColumnName="genda" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="region_id" ColumnName="region_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="groups">
+            <EntityTypeMapping TypeName="InstitutionModel.group">
+              <MappingFragment StoreEntitySet="group">
+                <ScalarProperty Name="id_group" ColumnName="id_group" />
+                <ScalarProperty Name="group_description" ColumnName="group_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="impairements">
+            <EntityTypeMapping TypeName="InstitutionModel.impairement">
+              <MappingFragment StoreEntitySet="impairement">
+                <ScalarProperty Name="id_impairement" ColumnName="id_impairement" />
+                <ScalarProperty Name="amortization__type" ColumnName="amortization__type" />
+                <ScalarProperty Name="provision" ColumnName="provision" />
+                <ScalarProperty Name="restructured" ColumnName="restructured" />
+                <ScalarProperty Name="risk_class" ColumnName="risk_class" />
+                <ScalarProperty Name="osb_less_dcfs" ColumnName="osb_less_dcfs" />
+                <ScalarProperty Name="impairement_loss_year1" ColumnName="impairement_loss_year1" />
+                <ScalarProperty Name="impairement_loss_year2" ColumnName="impairement_loss_year2" />
+                <ScalarProperty Name="written_off_year2" ColumnName="written_off_year2" />
+                <ScalarProperty Name="recovered_in_year2" ColumnName="recovered_in_year2" />
+                <ScalarProperty Name="o_principle" ColumnName="o_principle" />
+                <ScalarProperty Name="impairement1" ColumnName="impairement" />
+                <ScalarProperty Name="is_it_still_impaired" ColumnName="is_it_still_impaired" />
+                <ScalarProperty Name="is_it_writen_off" ColumnName="is_it_writen_off" />
+                <ScalarProperty Name="recovery_from_impairement" ColumnName="recovery_from_impairement" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="sector_id" ColumnName="sector_id" />
+                <ScalarProperty Name="account_id" ColumnName="account_id" />
+                <ScalarProperty Name="customer_number" ColumnName="customer_number" />
+                <ScalarProperty Name="branch_id" ColumnName="branch_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="loanheaders">
+            <EntityTypeMapping TypeName="InstitutionModel.loanheader">
+              <MappingFragment StoreEntitySet="loanheader">
+                <ScalarProperty Name="application_id" ColumnName="application_id" />
+                <ScalarProperty Name="customer_number" ColumnName="customer_number" />
+                <ScalarProperty Name="application_date" ColumnName="application_date" />
+                <ScalarProperty Name="branch_id" ColumnName="branch_id" />
+                <ScalarProperty Name="sector_id" ColumnName="sector_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="loanlines">
+            <EntityTypeMapping TypeName="InstitutionModel.loanline">
+              <MappingFragment StoreEntitySet="loanline">
+                <ScalarProperty Name="id_loan_line" ColumnName="id_loan_line" />
+                <ScalarProperty Name="application_id" ColumnName="application_id" />
+                <ScalarProperty Name="date_of_disbursement" ColumnName="date_of_disbursement" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="os_principle" ColumnName="os_principle" />
+                <ScalarProperty Name="os_interest" ColumnName="os_interest" />
+                <ScalarProperty Name="loan_balance" ColumnName="loan_balance" />
+                <ScalarProperty Name="terms" ColumnName="terms" />
+                <ScalarProperty Name="arrears_amount" ColumnName="arrears_amount" />
+                <ScalarProperty Name="interest_rate" ColumnName="interest_rate" />
+                <ScalarProperty Name="arrears_principle" ColumnName="arrears_principle" />
+                <ScalarProperty Name="arrears_interest" ColumnName="arrears_interest" />
+                <ScalarProperty Name="loan_series" ColumnName="loan_series" />
+                <ScalarProperty Name="last_due" ColumnName="last_due" />
+                <ScalarProperty Name="business_sector" ColumnName="business_sector" />
+                <ScalarProperty Name="sub_sector" ColumnName="sub_sector" />
+                <ScalarProperty Name="sub_sub_sector" ColumnName="sub_sub_sector" />
+                <ScalarProperty Name="purpose" ColumnName="purpose" />
+                <ScalarProperty Name="repayment_account" ColumnName="repayment_account" />
+                <ScalarProperty Name="interest" ColumnName="interest" />
+                <ScalarProperty Name="installment_star__date" ColumnName="installment_star__date" />
+                <ScalarProperty Name="credit_office__ID" ColumnName="credit_office__ID" />
+                <ScalarProperty Name="frequency" ColumnName="frequency" />
+                <ScalarProperty Name="calculation_method" ColumnName="calculation_method" />
+                <ScalarProperty Name="number_of_loans" ColumnName="number_of_loans" />
+                <ScalarProperty Name="clearBalance" ColumnName="clearBalance" />
+                <ScalarProperty Name="provisionOSP" ColumnName="provisionOSP" />
+                <ScalarProperty Name="provisionOSI" ColumnName="provisionOSI" />
+                <ScalarProperty Name="provisionLOM" ColumnName="provisionLOM" />
+                <ScalarProperty Name="provisionAsAT" ColumnName="provisionAsAT" />
+                <ScalarProperty Name="provisionATEOM" ColumnName="provisionATEOM" />
+                <ScalarProperty Name="daysLate_Number" ColumnName="daysLate_Number" />
+                <ScalarProperty Name="daysLateAv" ColumnName="daysLateAv" />
+                <ScalarProperty Name="interestTOEOM" ColumnName="interestTOEOM" />
+                <ScalarProperty Name="gl_interest_month" ColumnName="gl_interest_month" />
+                <ScalarProperty Name="interestpaid" ColumnName="interestpaid" />
+                <ScalarProperty Name="principle_in_start_date" ColumnName="principle_in_start_date" />
+                <ScalarProperty Name="due_days" ColumnName="due_days" />
+                <ScalarProperty Name="last_installment_paid_date" ColumnName="last_installment_paid_date" />
+                <ScalarProperty Name="suspended_interest" ColumnName="suspended_interest" />
+                <ScalarProperty Name="interest_receivable" ColumnName="interest_receivable" />
+                <ScalarProperty Name="actual_interest_receivable" ColumnName="actual_interest_receivable" />
+                <ScalarProperty Name="out_standing_balance" ColumnName="out_standing_balance" />
+                <ScalarProperty Name="installments_paid" ColumnName="installments_paid" />
+                <ScalarProperty Name="loan_cycle" ColumnName="loan_cycle" />
+                <ScalarProperty Name="recovered_amount" ColumnName="recovered_amount" />
+                <ScalarProperty Name="savings" ColumnName="savings" />
+                <ScalarProperty Name="unrecovered" ColumnName="unrecovered" />
+                <ScalarProperty Name="trade" ColumnName="trade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lossdefaultpersectors">
+            <EntityTypeMapping TypeName="InstitutionModel.lossdefaultpersector">
+              <MappingFragment StoreEntitySet="lossdefaultpersector">
+                <ScalarProperty Name="id_loss_default_per_sector" ColumnName="id_loss_default_per_sector" />
+                <ScalarProperty Name="sector_id" ColumnName="sector_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="macroeconomicfactors">
+            <EntityTypeMapping TypeName="InstitutionModel.macroeconomicfactor">
+              <MappingFragment StoreEntitySet="macroeconomicfactor">
+                <ScalarProperty Name="id_macro_economic_factor" ColumnName="id_macro_economic_factor" />
+                <ScalarProperty Name="factor" ColumnName="factor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="InstitutionModel.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="loan_application_id" ColumnName="loan_application_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="purposes">
+            <EntityTypeMapping TypeName="InstitutionModel.purpose">
+              <MappingFragment StoreEntitySet="purpose">
+                <ScalarProperty Name="id_purpose" ColumnName="id_purpose" />
+                <ScalarProperty Name="purpose_description" ColumnName="purpose_description" />
+                <ScalarProperty Name="application_id" ColumnName="application_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="recoveries">
+            <EntityTypeMapping TypeName="InstitutionModel.recovery">
+              <MappingFragment StoreEntitySet="recoveries">
+                <ScalarProperty Name="id_recoveries" ColumnName="id_recoveries" />
+                <ScalarProperty Name="account_id" ColumnName="account_id" />
+                <ScalarProperty Name="branch_id" ColumnName="branch_id" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="regions">
+            <EntityTypeMapping TypeName="InstitutionModel.region">
+              <MappingFragment StoreEntitySet="region">
+                <ScalarProperty Name="id_region" ColumnName="id_region" />
+                <ScalarProperty Name="region_description" ColumnName="region_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sectors">
+            <EntityTypeMapping TypeName="InstitutionModel.sector">
+              <MappingFragment StoreEntitySet="sector">
+                <ScalarProperty Name="id_sector" ColumnName="id_sector" />
+                <ScalarProperty Name="sector_description" ColumnName="sector_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="securities">
+            <EntityTypeMapping TypeName="InstitutionModel.security">
+              <MappingFragment StoreEntitySet="security">
+                <ScalarProperty Name="id_security" ColumnName="id_security" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="loan_application_id" ColumnName="loan_application_id" />
+                <ScalarProperty Name="value_of_security" ColumnName="value_of_security" />
+                <ScalarProperty Name="market_value" ColumnName="market_value" />
+                <ScalarProperty Name="forced_sale_value" ColumnName="forced_sale_value" />
+                <ScalarProperty Name="adjusted_sales_value" ColumnName="adjusted_sales_value" />
+                <ScalarProperty Name="discounted_cash_flows" ColumnName="discounted_cash_flows" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subsectors">
+            <EntityTypeMapping TypeName="InstitutionModel.subsector">
+              <MappingFragment StoreEntitySet="subsector">
+                <ScalarProperty Name="id_sub_sector" ColumnName="id_sub_sector" />
+                <ScalarProperty Name="sub_sector_description" ColumnName="sub_sector_description" />
+                <ScalarProperty Name="sector_id" ColumnName="sector_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subsubsectors">
+            <EntityTypeMapping TypeName="InstitutionModel.subsubsector">
+              <MappingFragment StoreEntitySet="subsubsector">
+                <ScalarProperty Name="id_sub_sub_sector" ColumnName="id_sub_sub_sector" />
+                <ScalarProperty Name="sub_sub_sector_description" ColumnName="sub_sub_sector_description" />
+                <ScalarProperty Name="subSector_id" ColumnName="subSector_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="writtenoffs">
+            <EntityTypeMapping TypeName="InstitutionModel.writtenoff">
+              <MappingFragment StoreEntitySet="writtenoff">
+                <ScalarProperty Name="id_written_off" ColumnName="id_written_off" />
+                <ScalarProperty Name="os_balance" ColumnName="os_balance" />
+                <ScalarProperty Name="WrittenOffcol" ColumnName="WrittenOffcol" />
+                <ScalarProperty Name="customer_number" ColumnName="customer_number" />
+                <ScalarProperty Name="application_id" ColumnName="application_id" />
+                <ScalarProperty Name="account_id" ColumnName="account_id" />
+                <ScalarProperty Name="branch_id" ColumnName="branch_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

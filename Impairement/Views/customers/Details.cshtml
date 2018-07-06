@@ -1,0 +1,66 @@
+﻿@model Impairement.Models.InstitutionModels.customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.account_holder_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.account_holder_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contact1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contact2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.genda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.genda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.region.region_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.region.region_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.group.group_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.group.group_description)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.customer_number }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Impairement.Models.InstitutionModels.customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.account_holder_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contact1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contact2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.genda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.region.region_description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.group.group_description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.account_holder_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.contact1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.contact2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.genda)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.region.region_description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.group.group_description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.customer_number }) |
+            @Html.ActionLink("Details", "Details", new { id=item.customer_number }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.customer_number })
+        </td>
+    </tr>
+}
+
+</table>

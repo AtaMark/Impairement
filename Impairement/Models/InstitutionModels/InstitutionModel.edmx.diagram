@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="30e6453ea05b41c1b75ce6a916126212" Name="Diagram1">
+        <EntityTypeShape EntityType="InstitutionModel.account" Width="1.5" PointX="3" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionModel.branch" Width="1.5" PointX="0.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionModel.creditofficer" Width="1.5" PointX="8.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionModel.customer" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionModel.group" Width="1.5" PointX="1.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionModel.impairement" Width="1.5" PointX="10.5" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionModel.loanheader" Width="1.5" PointX="6" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionModel.loanline" Width="1.5" PointX="8.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionModel.lossdefaultpersector" Width="1.5" PointX="6" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionModel.macroeconomicfactor" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionModel.product" Width="1.5" PointX="8.25" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionModel.purpose" Width="1.5" PointX="8.25" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionModel.recovery" Width="1.5" PointX="13.5" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionModel.region" Width="1.5" PointX="1.5" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionModel.sector" Width="1.5" PointX="3.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionModel.security" Width="1.5" PointX="8.25" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionModel.subsector" Width="1.5" PointX="6" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionModel.subsubsector" Width="1.5" PointX="8.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionModel.writtenoff" Width="1.5" PointX="11.25" PointY="14.875" IsExpanded="true" />
+        <AssociationConnector Association="InstitutionModel.fk_Account_Branch1" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.fk_Account_Customer1" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.fk_impairement_Account1" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.fk_Recoveries_Account1" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.fk_WrittenOff_Account1" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.branch_id" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.fk_impairement_Branch1" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.fk_Recoveries_Branch1" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.fk_WrittenOff_Branch1" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.loan_application_number" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.customer_number" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.fk_Customer_Region1" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.fk_impairement_Customer1" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.fk_WrittenOff_Customer1" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.group_id" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.fk_impairement_Product1" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.fk_impairement_Sector1" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.application_id" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.fk_Purpose_LoanHeader1" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.fk_WrittenOff_LoanHeader1" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.loan_applicaion_id" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.loan_application_id" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.sector_id" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.fk_LossDefaultPerSector_Sector1" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.fk_Recoveries_Product1" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.fk_SubSector_Sector1" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionModel.fk_SubSubSector_SubSector1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
